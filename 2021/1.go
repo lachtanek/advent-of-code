@@ -40,7 +40,7 @@ func getSums(depths []int) []int {
 	return sums
 }
 
-func mainn() {
+func main1() {
 	numbers, err := ReadNumbersInputFrom("1.inp")
 
 	if err != nil {

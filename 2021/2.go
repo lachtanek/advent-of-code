@@ -82,7 +82,7 @@ func getFinalValueBetter(courses []Course) int64 {
 	return depth * pos
 }
 
-func main() {
+func main2() {
 	data, err := ReadInputFrom("2.inp")
 
 	if err != nil {
