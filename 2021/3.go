@@ -85,7 +85,7 @@ func findOxygenCO2Ratings(data []int64, bit int64, rating bool) int64 {
 	return findOxygenCO2Ratings(values, bit/2, rating)
 }
 
-func main() {
+func main3() {
 	data, err := ReadInputFrom("3.inp")
 
 	if err != nil {
