@@ -126,7 +126,7 @@ func getLastWinScore(boards []Board, draws []int64) int64 {
 	return -1
 }
 
-func main() {
+func main4() {
 	data, err := ReadInputFrom("4.inp")
 
 	if err != nil {
