@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func ReadNumbersInputFrom(filename string) ([]int, error) {
@@ -56,4 +57,26 @@ func ReadInputFrom(filename string) ([]string, error) {
 	}
 
 	return data, nil
+}
+
+func Sum64(nums []int64) int64 {
+	var s int64 = 0
+
+	for _, n := range nums {
+		s += n
+	}
+
+	return s
+}
+
+func ReadIntegersOnLine(line string) []int {
+	values := []int{}
+	var value int64
+
+	for _, number_string := range strings.Split(line, ",") {
+		value, _ = strconv.ParseInt(number_string, 10, 64)
+		values = append(values, int(value))
+	}
+
+	return values
 }

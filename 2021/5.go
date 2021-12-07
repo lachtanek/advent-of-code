@@ -156,7 +156,7 @@ func countIntersects(field Field) int {
 	return count
 }
 
-func main() {
+func main5() {
 	data, err := ReadInputFrom("5.inp")
 
 	if err != nil {
