@@ -53,6 +53,32 @@ func toBits(digit string) int {
 	return bits
 }
 
+/**
+How the numbers look:
+  0:      1:      2:      3:      4:
+ aaaa    ....    aaaa    aaaa    ....
+b    c  .    c  .    c  .    c  b    c
+b    c  .    c  .    c  .    c  b    c
+ ....    ....    dddd    dddd    dddd
+e    f  .    f  e    .  .    f  .    f
+e    f  .    f  e    .  .    f  .    f
+ gggg    ....    gggg    gggg    ....
+
+  5:      6:      7:      8:      9:
+ aaaa    aaaa    aaaa    aaaa    aaaa
+b    .  b    .  .    c  b    c  b    c
+b    .  b    .  .    c  b    c  b    c
+ dddd    dddd    ....    dddd    dddd
+.    f  e    f  .    f  e    f  .    f
+.    f  e    f  .    f  e    f  .    f
+ gggg    gggg    ....    gggg    gggg
+
+Variables named sX and sXX represent bitmask value of segment X
+for the current display.
+
+`ds` array represents bitmask values of numbers for the
+current display (index is the number, value is the bitmask).
+*/
 func decodeDisplayNumber(display DisplayData) int {
 	ds := make([]int, 10)
 	bds := []int{}
