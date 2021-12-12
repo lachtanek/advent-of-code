@@ -80,3 +80,10 @@ func ReadIntegersOnLine(line string) []int {
 
 	return values
 }
+
+func copyAndAppend(data []string, e string) []string {
+	newData := make([]string, len(data))
+	copy(newData, data)
+	newData = append(newData, e)
+	return newData
+}
