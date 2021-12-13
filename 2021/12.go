@@ -133,7 +133,7 @@ func dfsPath2(graph CaveGraph, node string, path []string) [][]string {
 	return paths
 }
 
-func main() {
+func main12() {
 	data, err := ReadInputFrom("12.inp")
 
 	if err != nil {
