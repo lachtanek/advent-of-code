@@ -165,7 +165,7 @@ func addValues(packet Packet) int {
 	return 0
 }
 
-func main() {
+func main16() {
 	data, err := ReadInputFrom("16.inp")
 
 	if err != nil {
