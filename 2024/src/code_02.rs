@@ -12,8 +12,7 @@ fn is_safe(row: Vec<i32>) -> bool {
     (all_increasing || all_decreasing) && differences_ok
 }
 
-pub fn run_02(fname: &String) {
-    let data = std::fs::read_to_string(fname).unwrap();
+pub fn run_02(data: &String) {
     let mut n_safe = 0;
     let mut n_safe_2 = 0;
 
