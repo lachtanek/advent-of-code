@@ -1,0 +1,17 @@
+fn draw_map(nodes: &Vec<(char, Coords)>, anti_nodes: &Vec<Coords>, size: i32) {
+    for y in 0..size {
+        for x in 0..size {
+            let cur = Coords { x, y };
+            if let Some(node) = nodes.iter().find(|v| v.1 == cur) {
+                print!("{}", node.0.to_string());
+            } else if anti_nodes.contains(&cur) {
+                print!("#");
+            } else {
+                print!(".");
+            }
+        }
+        println!();
+    }
+    println!();
+    println!();
+}

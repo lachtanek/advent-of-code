@@ -1,6 +1,6 @@
-use std::{env, iter::zip};
+use std::iter::zip;
 
-fn count_differences(fname: &String) {
+pub fn run(fname: &String) {
     let data = std::fs::read_to_string(fname).unwrap();
     let mut values1 = Vec::<i32>::new();
     let mut values2 = Vec::<i32>::new();
@@ -14,7 +14,6 @@ fn count_differences(fname: &String) {
             let b = x2.parse::<i32>().unwrap();
             values1.push(a);
             values2.push(b);
-
         }
     }
 
@@ -31,24 +30,20 @@ fn count_differences(fname: &String) {
 
     let mut score = 0;
     for current in values1.clone() {
-        let n_times = values2.clone().into_iter().fold(0, |acc, value| {
-            if current == value {
-                acc + 1
-            } else {
-                acc
-            }
-        });
+        let n_times =
+            values2.clone().into_iter().fold(
+                0,
+                |acc, value| {
+                    if current == value {
+                        acc + 1
+                    } else {
+                        acc
+                    }
+                },
+            );
 
         score += current * n_times;
     }
 
     println!("result 2 {:?}", score);
-}
-
-pub fn run_01() {
-    let mut args = env::args();
-    args.next();
-    args.next();
-    let fname = args.next().unwrap();
-    count_differences(&fname);
 }

@@ -8,9 +8,7 @@ fn is_print_correct(print_vec: &Vec<i32>, rules: &Vec<(i32, i32)>) -> bool {
     for (i, num) in print_vec.iter().enumerate() {
         for rule in rules {
             if rule.1 == *num {
-                if let Some(found_idx) = print_vec.iter().position(
-                    |v| *v == rule.0
-                ) {
+                if let Some(found_idx) = print_vec.iter().position(|v| *v == rule.0) {
                     if found_idx > i {
                         return false;
                     }
@@ -38,7 +36,7 @@ fn get_correct_print(print_vec: &Vec<i32>, rules: &Vec<(i32, i32)>) -> Vec<i32> 
     return new_vec;
 }
 
-pub fn run_05(data: &String) {
+pub fn run(data: &String) {
     let mut rules = Vec::<(i32, i32)>::new();
     let mut prints = Vec::<Vec<i32>>::new();
     let mut parsing_rules = true;
@@ -47,9 +45,9 @@ pub fn run_05(data: &String) {
         if line.is_empty() {
             if parsing_rules {
                 parsing_rules = false;
-                continue
+                continue;
             } else {
-                break
+                break;
             }
         }
 
@@ -67,10 +65,10 @@ pub fn run_05(data: &String) {
 
     for print_vec in prints.iter() {
         if is_print_correct(print_vec, &rules) {
-            result1 += print_vec[print_vec.len()/2];
+            result1 += print_vec[print_vec.len() / 2];
         } else {
             let new_print = get_correct_print(print_vec, &rules);
-            result2 += new_print[new_print.len()/2];
+            result2 += new_print[new_print.len() / 2];
         }
     }
 

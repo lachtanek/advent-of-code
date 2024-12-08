@@ -4,7 +4,7 @@ fn to_number(value: &str) -> i32 {
     value.parse::<i32>().unwrap()
 }
 
-pub fn run_03(data: &String) {
+pub fn run(data: &String) {
     let re = Regex::new(r"(?:mul\((\d+),(\d+)\))|(?:do\(\))|(?:don't\(\))").unwrap();
 
     let mut total = 0;
