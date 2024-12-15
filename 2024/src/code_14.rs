@@ -1,48 +1,7 @@
-use std::ops;
+use crate::util::coords::Coords;
 
 fn to_number(value: &str) -> i32 {
     value.parse::<i32>().unwrap()
-}
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]
-struct Coords {
-    x: i32,
-    y: i32,
-}
-
-impl ops::Add<Coords> for Coords {
-    type Output = Coords;
-    fn add(self, other: Coords) -> Self::Output {
-        Coords {
-            x: self.x + other.x,
-            y: self.y + other.y,
-        }
-    }
-}
-
-impl ops::Mul<i32> for Coords {
-    type Output = Coords;
-    fn mul(self, other: i32) -> Self::Output {
-        Coords {
-            x: self.x * other,
-            y: self.y * other,
-        }
-    }
-}
-
-impl Coords {
-    fn bound(self: &Coords, size_x: i32, size_y: i32) -> Coords {
-        let x = (self.x + (self.x.abs()) * size_x) % size_x;
-        let y = (self.y + (self.y.abs()) * size_y) % size_y;
-        assert!(x >= 0 && x < size_x && y >= 0 && y < size_y);
-        return Coords { x, y };
-    }
-
-    fn dist(self: &Coords, other: &Coords) -> f64 {
-        f64::sqrt(f64::from(
-            (self.x - other.x).pow(2) + (self.y - other.y).pow(2),
-        ))
-    }
 }
 
 #[derive(Debug, Clone, Copy)]

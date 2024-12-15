@@ -1,23 +1,7 @@
-use std::{collections::VecDeque, i32, ops};
+use crate::util::coords::Coords;
+use std::{collections::VecDeque, i32};
 
 type Map = Vec<Vec<i32>>;
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]
-struct Coords {
-    x: i32,
-    y: i32,
-}
-
-impl ops::Add<(i32, i32)> for Coords {
-    type Output = Coords;
-
-    fn add(self, other: (i32, i32)) -> Self::Output {
-        Coords {
-            x: self.x + other.0,
-            y: self.y + other.1,
-        }
-    }
-}
 
 fn get(map: &Map, pos: Coords) -> Option<i32> {
     if let Ok(x) = usize::try_from(pos.x) {

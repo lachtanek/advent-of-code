@@ -12,6 +12,8 @@ mod code_11;
 mod code_12;
 mod code_13;
 mod code_14;
+mod code_15;
+pub mod util;
 use regex::Regex;
 use std::env;
 
@@ -40,6 +42,7 @@ fn main() {
             "12" => code_12::run(&file_content),
             "13" => code_13::run(&file_content),
             "14" => code_14::run(&file_content),
+            "15" => code_15::run(&file_content),
             _ => panic!("Undefined code"),
         }
     }

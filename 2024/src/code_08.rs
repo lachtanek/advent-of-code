@@ -1,64 +1,7 @@
-use std::{
-    cmp::{max, min},
-    ops,
-};
+use crate::util::coords::Coords;
+use std::cmp::{max, min};
 
 use itertools::Itertools;
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]
-struct Coords {
-    x: i32,
-    y: i32,
-}
-
-impl ops::Add<Coords> for Coords {
-    type Output = Coords;
-    fn add(self, other: Coords) -> Self::Output {
-        Coords {
-            x: self.x + other.x,
-            y: self.y + other.y,
-        }
-    }
-}
-
-impl ops::Sub<Coords> for Coords {
-    type Output = Coords;
-    fn sub(self, other: Coords) -> Self::Output {
-        Coords {
-            x: self.x - other.x,
-            y: self.y - other.y,
-        }
-    }
-}
-
-impl ops::Neg for Coords {
-    type Output = Coords;
-    fn neg(self) -> Self::Output {
-        Coords {
-            x: -self.x,
-            y: -self.y,
-        }
-    }
-}
-
-impl ops::Mul<i32> for Coords {
-    type Output = Coords;
-    fn mul(self, other: i32) -> Self::Output {
-        Coords {
-            x: self.x * other,
-            y: self.y * other,
-        }
-    }
-}
-
-impl Coords {
-    fn abs(self) -> Coords {
-        Coords {
-            x: self.x.abs(),
-            y: self.y.abs(),
-        }
-    }
-}
 
 fn coords(x: i32, y: i32) -> Coords {
     Coords { x, y }

@@ -1,4 +1,4 @@
-use std::ops;
+use crate::util::coords::Coords;
 
 type Map = Vec<Vec<char>>;
 
@@ -8,23 +8,6 @@ enum Direction {
     Down,
     Left,
     Right,
-}
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]
-struct Coords {
-    x: i32,
-    y: i32,
-}
-
-impl ops::Add<(i32, i32)> for Coords {
-    type Output = Coords;
-
-    fn add(self, other: (i32, i32)) -> Self::Output {
-        Coords {
-            x: self.x + other.0,
-            y: self.y + other.1,
-        }
-    }
 }
 
 fn try_move(map: &Map, position: Coords, direction: Direction) -> Option<(Coords, char)> {
