@@ -10,6 +10,8 @@ mod code_09;
 mod code_10;
 mod code_11;
 mod code_12;
+mod code_13;
+mod code_14;
 use regex::Regex;
 use std::env;
 
@@ -36,6 +38,8 @@ fn main() {
             "10" => code_10::run(&file_content),
             "11" => code_11::run(&file_content),
             "12" => code_12::run(&file_content),
+            "13" => code_13::run(&file_content),
+            "14" => code_14::run(&file_content),
             _ => panic!("Undefined code"),
         }
     }
